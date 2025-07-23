@@ -1,5 +1,7 @@
 # husarion_ugv_configurator
 
+The Husarion UGV Configurator is a Text User Interface (TUI) application designed to simplify the management and configuration of Husarion UGV platforms, including Panther and Lynx. It provides an intuitive interface for updating robot parameters, managing driver versions, debugging, and more.
+
 ## Installation
 
 Simply run:
