@@ -1,0 +1,115 @@
+#header {
+    text-style: bold;
+}
+
+#top {
+    height: 50%;
+    width: 100%;
+    layout: horizontal;
+}
+
+#robot_info {
+    height: 100%;
+    width: 25;
+    margin: 1 2;
+}
+
+#command_list{
+    overflow: auto;
+    align: center top;
+}
+
+Button:focus {
+    text-style: bold;
+}
+
+ListView {
+    width: 100%;
+    height: auto;
+    margin: 1 1;
+}
+
+ScrollableContainer Label {
+    padding: 1 1;
+}
+
+OutputLabel {
+    padding: 1 1;
+    text-align: left;
+}
+
+RichLog {
+    padding: 1 1;
+    margin: 1 1;
+}
+
+ConfirmationScreen {
+    align: center middle;
+    height: 30;
+    content-align: center middle;
+    text-align: center;
+}
+
+ConfirmationScreen #grid {
+    grid-size: 1 ;
+    grid-gutter: 1 1;
+    grid-rows: 1fr 1fr;
+    padding: 0 1;
+    width: 50;
+    height: 13;
+    # height: 25h;
+    # height: 25vh;
+    # height: 15vw;
+    border: thick $background 80%;
+    background: $surface;
+    text-align: center;
+}
+
+ConfirmationScreen #question {
+    /* column-span: 1; */
+    height: 1fr;
+    width: 1fr;
+    content-align: center middle;
+    text-align: center;
+}
+
+SelectionScreen {
+    align: center middle;
+    height: 10;
+    content-align: center middle;
+}
+
+SelectionScreen #grid {
+    grid-size: 1;
+    grid-gutter: 1 1;
+    grid-rows: 1fr 6fr;
+    padding: 0 1;
+    width: 50;
+    height: 20;
+    border: thick $background 80%;
+    background: $surface;
+}
+
+SelectionScreen #title {
+    /* column-span: 1; */
+    height: 1fr;
+    width: 1fr;
+    content-align: center middle;
+}
+
+DriverLogsScreen #tools {
+    height: 3;
+    width: 100%;
+    layout: horizontal;
+    margin: 1 0;
+}
+
+DriverLogsScreen Button {
+    height: 100%;
+    width: 15;
+    margin: 0 1;
+}
+
+.hidden {
+    display: none;
+}
