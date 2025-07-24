@@ -4,9 +4,16 @@ The Husarion UGV Configurator is a Text User Interface (TUI) application designe
 
 ## Installation
 
-Simply run:
+Clone this repository:
 
 ```bash
+git clone https://github.com/husarion/husarion_ugv_configurator.git
+```
+
+Install the Husarion UGV Configurator app. You have to be connected to the robot during this porcess. You may be asked to provide passowrd to the Built-in Computer, the default is `husarion`.
+
+```bash
+cd husarion_ugv_configurator
 just install
 ```
 
