@@ -64,7 +64,7 @@ To completely erase all changes made to the `config` directory (except for files
 just restore_default hard
 ```
 
-::Warning::
+> [!WARNING]
 > This will completely erase all data from the `config` directory except for files located in the `config/common` subdirectory.
 
 ### Update driver version
