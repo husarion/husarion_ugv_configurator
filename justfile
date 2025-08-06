@@ -1,5 +1,6 @@
 remote_ip := "10.15.20.2"
 remote_host := "husarion"
+password := "husarion"
 
 [private]
 default:
@@ -15,21 +16,25 @@ _install_package package:
   fi
 
 _ssh_command +command:
-  ssh -o ConnectTimeout=10 -n {{remote_host}}@{{remote_ip}} "{{command}}"
+  sshpass -p {{password}} ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no -n {{remote_host}}@{{remote_ip}} "{{command}}"
+
+_rsync_command +command:
+  sshpass -p {{password}} rsync -e 'ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no' {{command}}
 
 _install_dependencies:
   @echo "Installing dependencies"
   just _install_package rsync
+  just _install_package sshpass
+  just _install_package python3-venv
 
 init_config: _install_dependencies
   @echo "Initializing config directory..."
   mkdir -p config
-  ssh-copy-id -o ConnectTimeout=10 {{remote_host}}@{{remote_ip}}
-  rsync -e 'ssh -o ConnectTimeout=10' -avr {{remote_host}}@{{remote_ip}}:/home/husarion/config/ ./config/
+  just _rsync_command -avr {{remote_host}}@{{remote_ip}}:/home/husarion/config/ ./config/
 
 update_config:
   @echo "Updating robot configuration..."
-  rsync -e 'ssh -o ConnectTimeout=10' -avr ./config/ {{remote_host}}@{{remote_ip}}:/home/husarion/config/
+  just _rsync_command -avr ./config/ {{remote_host}}@{{remote_ip}}:/home/husarion/config/
 
 restart_driver:
   @echo "Restarting driver..."
