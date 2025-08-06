@@ -16,10 +16,10 @@ _install_package package:
   fi
 
 _ssh_command +command:
-  sshpass -p {{password}} ssh -o ConnectTimeout=10 -n {{remote_host}}@{{remote_ip}} "{{command}}"
+  sshpass -p {{password}} ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no -n {{remote_host}}@{{remote_ip}} "{{command}}"
 
 _rsync_command +command:
-  sshpass -p {{password}} rsync -e 'ssh -o ConnectTimeout=10' {{command}}
+  sshpass -p {{password}} rsync -e 'ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no' {{command}}
 
 _install_dependencies:
   @echo "Installing dependencies"
